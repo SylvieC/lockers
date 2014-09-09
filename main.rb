@@ -49,8 +49,7 @@ while choice != 'q'
     #ask for the number that needs to be freed
    puts " Enter the number of the locker to be freed"
    number = gets.chomp.to_i
-
-    # free the locker with the number given if it was taken, if not signal the error
+   # free the locker with the number given if it was taken, if not signal the error
    puts hotel.free_locker(number)
     
   else
