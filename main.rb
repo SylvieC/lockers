@@ -8,7 +8,7 @@ hotel.install_lockers('medium', 3)
 hotel.install_lockers('large', 3)
 
 def menu (message)
-  # puts "*** Lockers' Manager*** "
+  puts "*** Lockers' Manager*** "
   puts "#{message}\n\n" unless message.empty?
   puts '1 : Get a locker number'
   puts '2 : Free a locker'
