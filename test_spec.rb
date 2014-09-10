@@ -58,9 +58,9 @@ require 'rspec'
       answer = @hotel.take_next_locker('large')
       answer.should eq('Sorry, no more lockers available for that size!')
     end
-    it 'changes the available property of a locker from true to false when it is taken' do
+    it 'the available property of a locker becomes false when that locker is chosen' do
       number = @hotel.take_next_locker('medium')
-      locker = @hotel.lockers.select { |locker| locker.number == number}[0]
+      locker = @hotel.lockers.select { |locker| locker.number == number}.first
       locker.available.should eq(false)
     end
   end
@@ -77,11 +77,11 @@ require 'rspec'
         @hotel.take_next_locker('large')
      end
       it 'frees the locker with the right number' do
-        locker_num_5 = @hotel.lockers.select { |locker| locker.number == 5}[0]
+        locker_num_5 = @hotel.lockers.select { |locker| locker.number == 5}.first
         locker_num_5.available = false
         expect {@hotel.free_locker(5)}.to change(locker_num_5, :available).from(false).to(true)
       end
-      it 'if the number given is already free, it displays the right message ' do
+      it 'if the number given corresponds to a locker already free, it displays the right message ' do
         locker_num_10 = @hotel.lockers.select {|locker| locker.number == 10}.first
         locker_num_10.available = true
         @hotel.free_locker(10).should eq(" Invalid entry. The locker number 10 was already free ")
@@ -91,4 +91,15 @@ require 'rspec'
       end
      end
   end
+
+  describe Locker do
+    it 'creates a locker with the name,size, and availibility given' do
+     locker = Locker.new(1,'medium', true)
+     locker.number.should eq(1)
+     locker.size.should eq('medium')
+     locker.available.should eq(true)
+  end
+
+
+end
  

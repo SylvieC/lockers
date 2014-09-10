@@ -14,7 +14,9 @@ def menu (message)
   puts '2 : Free a locker'
   puts "q : Quit\n\n"
   print '--> '
-  gets.chomp
+  str = gets
+  exit if str.nil? or str.empty?
+  str.chomp!
 end
 
 message = ""
