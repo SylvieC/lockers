@@ -1,5 +1,6 @@
 require './hotel'
 require './locker'
+require 'pry'
 
 
 hotel = Hotel.new("Las Vegas Hotel")
@@ -14,7 +15,9 @@ def menu (message)
   puts '2 : Free a locker'
   puts "q : Quit\n\n"
   print '--> '
-  gets.chomp
+  str = gets
+  exit if str.nil? or str.empty?
+  str.chomp!
 end
 
 message = ""
@@ -37,13 +40,13 @@ while choice != 'q'
       locker = hotel.next_available_locker(size)
       answer = hotel.take_next_locker(size)
       puts answer
-    if answer.is_a? Numeric
+     if answer.is_a? Numeric
        puts 'Printing ticket for locker number ' + answer.to_s + ' ...' 
        #method to trigger the printing machine
-       puts   "Locker number #{answer} (size #{locker.size}) is now taken"
+       message =   "Locker number #{answer} (size #{locker.size}) is now taken"
        hotel.display_num_lockers_available()
     end
-    
+     
   when "2"
     #Free a locker
     #ask for the number that needs to be freed
@@ -53,7 +56,7 @@ while choice != 'q'
    puts hotel.free_locker(number)
 
   else
-      message += "Invalid entry ... The options are 1, 2 or q"
+      message = "Invalid entry ... The options are 1, 2 or q"
   end
   choice = menu message
 end
