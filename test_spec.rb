@@ -1,6 +1,5 @@
 require './hotel.rb'
 require './locker.rb'
-require './main.rb'
 require 'rspec'
 
   describe 'Hotel' do
