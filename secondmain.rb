@@ -19,7 +19,7 @@ def menu (message)
   exit if str.nil? or str.empty?
   str.chomp!
 end
-
+def display(choice, hotel)
 message = ""
 choice = menu(message)
 while choice != 'q'
@@ -33,7 +33,7 @@ while choice != 'q'
     size_equivalent = { "S" => 'small', "s" => 'small', "M" => 'medium', "m" => 'medium', "L"  => 'large', "l" => 'large'}
     while size_equivalent[size_chosen].nil?
       puts "Please enter a valid size : S for small, M for medium, L for large"
-      size_chosen = gets.chomp
+      size_equivalent = gets.chomp
     end
       size = size_equivalent[size_chosen]
       # if a locker is available, print its number. If none are available, the message 'Sorry, no more lockers available for that size!'
@@ -55,8 +55,13 @@ while choice != 'q'
    # free the locker with the number given if it was taken, if not signal the error
    puts hotel.free_locker(number)
 
+  when ""
+   message = ""
+
   else
       message = "Invalid entry ... The options are 1, 2 or q"
   end
   choice = menu message
 end
+end
+display("", hotel)
