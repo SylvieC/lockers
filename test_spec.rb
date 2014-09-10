@@ -1,5 +1,6 @@
 require './hotel.rb'
 require './locker.rb'
+require './main.rb'
 require 'rspec'
 
   describe 'Hotel' do
@@ -99,7 +100,6 @@ require 'rspec'
      locker.size.should eq('medium')
      locker.available.should eq(true)
   end
-
 
 end
  

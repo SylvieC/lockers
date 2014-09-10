@@ -14,9 +14,7 @@ def menu (message)
   puts '2 : Free a locker'
   puts "q : Quit\n\n"
   print '--> '
-  str = gets
-  exit if str.nil? or str.empty?
-  str.chomp!
+  gets.chomp
 end
 
 message = ""
@@ -42,7 +40,7 @@ while choice != 'q'
     if answer.is_a? Numeric
        puts 'Printing ticket for locker number ' + answer.to_s + ' ...' 
        #method to trigger the printing machine
-       puts  "Locker number #{answer} (size #{locker.size}) is now taken"
+       message =   "Locker number #{answer} (size #{locker.size}) is now taken"
        hotel.display_num_lockers_available()
     end
     
