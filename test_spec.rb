@@ -2,6 +2,9 @@ require './hotel.rb'
 require './locker.rb'
 require 'rspec'
 
+
+
+
   describe 'Hotel' do
    
    it 'creates the right amounts of lockers for small size' do
@@ -99,6 +102,8 @@ require 'rspec'
      locker.size.should eq('medium')
      locker.available.should eq(true)
   end
+
+
 
 end
  

@@ -95,7 +95,7 @@ end
     end
    end
    # if the number is not found after iterating through @lockers' numbers
-   return "We don't have any locker number #{number} in the hotel"
+   return "No locker in this hotel corresponding to the number entered"
  end
 
  def display_num_lockers_available
@@ -108,6 +108,16 @@ end
    puts  "~Lockers available:  Small: #{small}, Medium: #{medium}, Large:  #{large} "
   end
  end
+
+ def menu (message)
+  puts "*** Lockers' Manager #{@name} *** "
+  puts "#{message}\n\n" unless message.empty?
+  puts '1 : Get a locker number'
+  puts '2 : Free a locker'
+  puts "q : Quit\n\n"
+  print '--> '
+  gets.chomp
+end
 
 
 end

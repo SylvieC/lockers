@@ -7,8 +7,8 @@ hotel.install_lockers('small', 3)
 hotel.install_lockers('medium', 3)
 hotel.install_lockers('large', 3)
 
-def menu (message)
-  # puts "*** Lockers' Manager*** "
+ def menu (message)
+  puts "*** Lockers' Manager *** "
   puts "#{message}\n\n" unless message.empty?
   puts '1 : Get a locker number'
   puts '2 : Free a locker'
@@ -17,11 +17,13 @@ def menu (message)
   gets.chomp
 end
 
+
+def display( choice, hotel)
 message = ""
-choice = menu(message)
 while choice != 'q'
 
  case choice
+
   when "1"
     #Get a locker
     # Get the size of the bag
@@ -36,12 +38,13 @@ while choice != 'q'
       # if a locker is available, print its number. If none are available, the message 'Sorry, no more lockers available for that size!'
       locker = hotel.next_available_locker(size)
       answer = hotel.take_next_locker(size)
-      puts answer
+      puts  answer
     if answer.is_a? Numeric
-       puts 'Printing ticket for locker number ' + answer.to_s + ' ...' 
+       puts  'Printing ticket for locker number ' + answer.to_s + ' ...' 
        #method to trigger the printing machine
        puts   "Locker number #{answer} (size #{locker.size}) is now taken"
-       hotel.display_num_lockers_available()
+       puts hotel.display_num_lockers_available().to_s
+       
     end
     
   when "2"
@@ -52,8 +55,14 @@ while choice != 'q'
    # free the locker with the number given if it was taken, if not signal the error
    puts hotel.free_locker(number)
 
+ when ""
+  message = ""
+    
   else
-      message += "Invalid entry ... The options are 1, 2 or q"
+      message = "Invalid entry ... The options are 1, 2 or q"
   end
   choice = menu message
 end
+end
+
+display("",hotel)
