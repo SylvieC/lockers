@@ -109,15 +109,6 @@ end
   end
  end
 
- def menu (message)
-  puts "*** Lockers' Manager #{@name} *** "
-  puts "#{message}\n\n" unless message.empty?
-  puts '1 : Get a locker number'
-  puts '2 : Free a locker'
-  puts "q : Quit\n\n"
-  print '--> '
-  gets.chomp
-end
 
 
 end
