@@ -4,9 +4,9 @@ require 'pry'
 
 
 hotel = Hotel.new("Las Vegas Hotel")
-hotel.install_lockers('small', 3)
-hotel.install_lockers('medium', 3)
-hotel.install_lockers('large', 3)
+hotel.install_lockers('small', 1000)
+hotel.install_lockers('medium', 1000)
+hotel.install_lockers('large', 1000)
 
 def menu (message)
   puts "*** Lockers' Manager*** "
